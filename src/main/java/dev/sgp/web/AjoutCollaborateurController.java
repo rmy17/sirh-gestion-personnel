@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dev.sgp.entite.Collaborateur;
 import dev.sgp.service.CollaborateurService;
+import dev.sgp.util.Constantes;
 
 public class AjoutCollaborateurController extends HttpServlet {
 
@@ -21,6 +22,9 @@ public class AjoutCollaborateurController extends HttpServlet {
 	 * javax.servlet.http.HttpServlet#doPut(javax.servlet.http.HttpServletRequest,
 	 * javax.servlet.http.HttpServletResponse)
 	 */
+
+	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nom = req.getParameter("nom");
@@ -51,14 +55,12 @@ public class AjoutCollaborateurController extends HttpServlet {
 
 			collabService.sauvegarderCollaborateur(collab);
 			resp.setContentType("text/html");
-			resp.getWriter().write(
-					"Informations enregistrés" + collab.getEmail() + collab.getAdresse() + collab.getDateDeNaissance());
+			req.setAttribute("listCollab", collabService.listerCollaborateur());
+			req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp").forward(req, resp);
 		} else {
 			resp.sendError(400, "Il faut remplir les champs manquants");
 		}
 
-		// req.getRequestDispatcher("/WEB-INF/views/collab/ajouterCollaborateurs.jsp").forward(req,
-		// resp);
 	}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

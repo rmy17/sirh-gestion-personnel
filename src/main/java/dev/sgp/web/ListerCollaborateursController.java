@@ -1,7 +1,6 @@
 package dev.sgp.web;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -29,8 +28,7 @@ public class ListerCollaborateursController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		List<Collaborateur> collaborateurs = collabService.listerCollaborateur();
-
-		req.setAttribute("listeNoms", Arrays.asList("Robert", "Jean", "Hugues"));
+		req.setAttribute("listCollab", collaborateurs);
 		req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp").forward(req, resp);
 		/*
 		 * // recupere la valeur d'un parametre dont le nom est avecPhoto String

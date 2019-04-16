@@ -1,25 +1,26 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
 	<display-name>sgp</display-name>
-
+	<!-- <filter> <filter-name>FrequentationFilter</filter-name> <filter-class>dev.sgp.filtre.FrequentationFilter</filter-class> 
+		</filter> <filter-mapping> <filter-name>FrequentationFilter</filter-name> 
+		<url-pattern>/*</url-pattern> </filter-mapping> -->
 	<servlet>
 		<servlet-name>ListerCollaborateursController</servlet-name>
 		<servlet-class>dev.sgp.web.ListerCollaborateursController</servlet-class>
 	</servlet>
-	
+
 	<servlet>
 		<servlet-name>EditerCollaborateurController</servlet-name>
 		<servlet-class>dev.sgp.web.EditerCollaborateurController</servlet-class>
 	</servlet>
-	
+
 	<servlet>
 		<servlet-name>AjoutCollaborateurController</servlet-name>
 		<servlet-class>dev.sgp.web.AjoutCollaborateurController</servlet-class>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>ListerCollaborateursController</servlet-name>
 		<url-pattern>/collaborateurs/lister</url-pattern>
@@ -32,5 +33,5 @@
 		<servlet-name>AjoutCollaborateurController</servlet-name>
 		<url-pattern>/collaborateurs/ajouter</url-pattern>
 	</servlet-mapping>
-	
+
 </web-app>
