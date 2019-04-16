@@ -4,7 +4,7 @@ public class VisiteWeb {
 
 	private int id;
 	private String chemin;
-	private int tempsExecution;
+	private long tempsExecution;
 
 	/**
 	 * @return the id
@@ -37,14 +37,14 @@ public class VisiteWeb {
 	/**
 	 * @return the tempsExecution
 	 */
-	public int getTempsExecution() {
+	public long getTempsExecution() {
 		return tempsExecution;
 	}
 
 	/**
 	 * @param tempsExecution the tempsExecution to set
 	 */
-	public void setTempsExecution(int tempsExecution) {
+	public void setTempsExecution(long tempsExecution) {
 		this.tempsExecution = tempsExecution;
 	}
 }

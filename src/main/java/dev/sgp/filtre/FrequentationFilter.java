@@ -30,8 +30,11 @@ public class FrequentationFilter implements Filter {
 		chain.doFilter(request, response);
 		long after = System.currentTimeMillis();
 		String path = ((HttpServletRequest) request).getRequestURI();
-		config.getServletContext().log(path + ":" + (after - before));
-
+		long time = (after - before);
+		visiteWeb.setChemin(path);
+		visiteWeb.setTempsExecution(time);
+		int ident = (int) Math.random();
+		visiteWeb.setId(ident);
 	}
 
 	@Override
